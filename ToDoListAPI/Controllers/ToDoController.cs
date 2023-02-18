@@ -45,9 +45,9 @@ namespace ToDoListAPI.Controllers
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<ToDo>>> DeleteToDo(ToDo todo)
+        public async Task<ActionResult<List<ToDo>>> DeleteToDo(int id)
         {
-            var dbtodo = await _dataContext.ToDoList.FindAsync(todo.Id);
+            var dbtodo = await _dataContext.ToDoList.FindAsync(id);
             if (dbtodo == null) return BadRequest("ToDo punkt ikke fundet.");
 
             _dataContext.ToDoList.Remove(dbtodo);

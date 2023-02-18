@@ -37,7 +37,6 @@ namespace ToDoListAPI.Controllers
             var dbtodo = await _dataContext.ToDoList.FindAsync(todo.Id);
             if (dbtodo == null) return BadRequest("ToDo punkt ikke fundet.");
             dbtodo.Note = todo.Note;
-            dbtodo.CheckMark = todo.CheckMark;
 
             await _dataContext.SaveChangesAsync();
 
